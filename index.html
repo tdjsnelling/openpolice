@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>Open Police Data</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<nav class="navbar sticky-top navbar-toggleable-md navbar-light bg-faded">
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand" href="javascript:void(0)" data-toggle="modal" data-target="#about-modal">OPENPOLICE.INFO</a>
+	</nav>
+
+	<div class="modal fade bd-example-modal-lg" id="about-modal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">About Open Police</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Open Police is a web app developed by Tom Snelling. It is built on the data.police.uk API, which can be found <a href="https://data.police.uk/docs" target="_blank">here</a>.</p>
+					<p>The service is open source; view the code at <a href="https://github.com/tdjsnelling/openpolice">github.com/tdjsnelling/openpolice</a>.</p>
+					<p>The following open source projects are used here:</p>
+					<ul>
+						<li><a href="https://jquery.com">JQuery</a></li>
+						<li><a href="https://getbootstrap.com">Bootstrap 4</a></li>
+						<li><a href="https://github.com/uxsolutions/bootstrap-datepicker">bootstrap-datepicker</a></li>
+						<li><a href="https://hpneo.github.io/gmaps/">gmaps.js</a></li>
+						<li><a href="https://github.com/Logicify/jquery-locationpicker-plugin">jquery-locationpicker</a></li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade bd-example-modal-lg" id="crime-modal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="crime-display-title"></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div id="modal-map"></div>
+					<p id="outcome-text"></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="bar-long"></div>
+				<div class="jumbotron jumbotron-fluid">
+					<div class="container">
+						<h3>OPENPOLICE.INFO</h3>
+						<p class="lead">is a service that makes data on all street-level crimes more readily available. <br>To use, drag the marker to your desired location, select a date, and hit find. All locations are approximate.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col" id="control-col">
+				<div id="control">
+					<div id="map"></div>
+					<input type="text" class="form-control" id="date" placeholder="date (leave blank for most recent data)">
+					<button type="button" class="btn btn-primary" id="go">Find</button>
+				</div>
+			</div>
+			<div class="col">
+				<ul class="list-group" id="res"></ul>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-datepicker.min.js"></script>
+	<script src="js/gmaps.js"></script>
+	<script type="text/javascript" src='http://maps.google.com/maps/api/js?key=AIzaSyCQV1PT4BTBhek7f_0aRSJH7TkPupaxID8&sensor=false&libraries=places'></script>
+	<script src="js/locationpicker.jquery.min.js"></script>
+	<script src="js/app.js"></script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-87488863-2', 'auto');
+		ga('send', 'pageview');
+	</script>
+</body>
+</html>

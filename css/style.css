@@ -1,0 +1,69 @@
+html {
+	overflow-y: scroll;
+}
+
+.navbar, .navbar-brand, .navbar-text, .btn-primary {
+	background-color: #1b4080;
+	color: #f8f8f8 !important;
+}
+
+.btn-primary:hover {
+	background-color: #4b7fd9;
+}
+
+.container {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.bar-long {
+	height: 8px;
+	background-color: #4b7fd9;
+	width: 0px;
+	z-index: 1000;
+	position: fixed;
+	top: 50px;
+	left: 0;
+}
+
+.jumbotron {
+	padding: 10px 50px;
+}
+
+#control {
+	position: absolute;
+	padding-bottom: 50px;
+}
+
+#map {
+	width: 100%;
+	height: 400px;
+	margin-bottom: 20px;
+}
+
+.datepicker span.active {
+	background-image: none !important;
+	background-color: #1b4080 !important;
+}
+
+input[type="text"]:focus {
+	border-color: #1b4080;
+}
+
+button#go {
+	margin-top: 20px;
+	width: 100%;
+	border: none;
+}
+
+h5.mb-1, #crime-display-title {
+	text-transform: capitalize;
+}
+
+#outcome-text {
+	margin-top: 15px;
+}
+
+hr {
+	border: 1px solid #1b4080;
+}
